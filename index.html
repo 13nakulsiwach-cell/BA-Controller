@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="BA Control"/>
+  <meta name="theme-color" content="#e05a1e"/>
+  <title>BA Entry Control Board</title>
+  <link rel="manifest" href="./manifest.json"/>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@600;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body,#root{width:100%;height:100%;background:#060a0f;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+    @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 #ef444480;}50%{box-shadow:0 0 0 6px #ef444420;}}
+    @keyframes mic-pulse{0%,100%{box-shadow:0 0 0 0 #ef444480;}50%{box-shadow:0 0 0 8px #ef444420;}}
+    .whistle-row{animation:pulse-border 0.8s infinite;}
+    .blink{animation:blink 0.7s infinite;}
+    .mic-active{animation:mic-pulse 0.6s infinite;}
+    input:focus{outline:none;}
+    input[type=number]::-webkit-inner-spin-button{opacity:1;}
+    ::-webkit-scrollbar{width:6px;}
+    ::-webkit-scrollbar-track{background:#060a0f;}
+    ::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:3px;}
+    body{-webkit-user-select:none;user-select:none;}
+    input{-webkit-user-select:text;user-select:text;}
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback } = React;
+
+// ── PHYSICS ───────────────────────────────────────────────────────────────────
+const CYLINDER_L    = 2040;
+const BREATH_RATE   = 40;
+const SAFETY_FACTOR = 0.9;
+const THEORETICAL_MIN = CYLINDER_L / BREATH_RATE;
+const BAR_PER_MIN   = 300 / THEORETICAL_MIN;
+const WHISTLE_BAR   = 55;
+const SAFETY_BAR    = 50;
+
+function calcT(startP) {
+  const totalMin   = (startP / BAR_PER_MIN) * SAFETY_FACTOR;
+  const whistleMin = ((startP - WHISTLE_BAR) / BAR_PER_MIN) * SAFETY_FACTOR;
+  return {
+    reliefDue:    Math.round(totalMin * 0.5),
+    safetyStart:  Math.round(whistleMin * 0.9),
+    fullEndurance:Math.round(whistleMin * 0.95),
+    whistle:      Math.round(whistleMin),
+    total:        Math.round(totalMin),
+  };
+}
+
+function pressureAt(elapsedMin, startP) {
+  return Math.max(0, Math.round(startP - (elapsedMin / SAFETY_FACTOR) * BAR_PER_MIN));
+}
+
+const ALL_PHASES = [
+  {id:"working",   label:"WORKING",               color:"#4ade80",bg:"#052e16",border:"#166534",until:p=>calcT(p).reliefDue},
+  {id:"relief",    label:"RELIEF DUE",            color:"#fb923c",bg:"#2c0a00",border:"#9a3412",until:p=>calcT(p).safetyStart},
+  {id:"safety",    label:"SAFETY MARGIN",         color:"#fcd34d",bg:"#2a1800",border:"#92400e",until:p=>calcT(p).fullEndurance},
+  {id:"endurance", label:"FULL ENDURANCE",        color:"#f97316",bg:"#3b0800",border:"#c2410c",until:p=>calcT(p).whistle},
+  {id:"whistle",   label:"⚠ WHISTLE! RETURN NOW", color:"#ff4444",bg:"#200000",border:"#ef4444",until:()=>Infinity},
+];
+
+function getPhase(elapsedMin, startP) {
+  return ALL_PHASES.find(p => elapsedMin < p.until(startP)) ?? ALL_PHASES[ALL_PHASES.length-1];
+}
+
+const ZONE_COLORS = ["#052e16","#2c0a00","#2a1800","#3b0800","#200000"];
+function buildSegments(entryMin, T) {
+  const durations = [T.reliefDue, T.safetyStart-T.reliefDue, T.fullEndurance-T.safetyStart, T.whistle-T.fullEndurance, 60-T.whistle];
+  const segs = []; let cursor = entryMin;
+  durations.forEach((dur,i) => {
+    if(dur<=0) return;
+    const s=cursor%60, e=(cursor+dur)%60;
+    const sPct=(s/60)*100, ePct=(e/60)*100;
+    if(ePct>sPct) segs.push({left:sPct,width:ePct-sPct,color:ZONE_COLORS[i]});
+    else { segs.push({left:sPct,width:100-sPct,color:ZONE_COLORS[i]}); if(ePct>0) segs.push({left:0,width:ePct,color:ZONE_COLORS[i]}); }
+    cursor+=dur;
+  });
+  return segs;
+}
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+function useAudio() {
+  const ctx = useRef(null);
+  const getCtx = () => { if(!ctx.current) ctx.current = new (window.AudioContext||window.webkitAudioContext)(); return ctx.current; };
+  const beep = useCallback((freq,dur,vol=0.4,type="sine") => {
+    try {
+      const c=getCtx(), osc=c.createOscillator(), gain=c.createGain();
+      osc.connect(gain); gain.connect(c.destination);
+      osc.type=type; osc.frequency.value=freq;
+      gain.gain.setValueAtTime(vol,c.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001,c.currentTime+dur);
+      osc.start(c.currentTime); osc.stop(c.currentTime+dur);
+    } catch(e){}
+  },[]);
+  const alarmRelief  = useCallback(()=>{ beep(880,0.3,0.5); setTimeout(()=>beep(880,0.3,0.5),400); setTimeout(()=>beep(1100,0.5,0.6),800); },[beep]);
+  const alarmWhistle = useCallback(()=>{ [0,250,500,750,1000].forEach(t=>setTimeout(()=>beep(1320,0.2,0.7,"square"),t)); },[beep]);
+  const alarmWithdraw= useCallback(()=>{ [0,150,300,450,600,750,900,1050].forEach(t=>setTimeout(()=>beep(t%300===0?1760:1320,0.15,0.9,"sawtooth"),t)); },[beep]);
+  return {alarmRelief,alarmWhistle,alarmWithdraw};
+}
+
+// ── VOICE ─────────────────────────────────────────────────────────────────────
+function useVoice(onResult) {
+  const [listening,setListening]=useState(false);
+  const recRef=useRef(null);
+  const start=useCallback(()=>{
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR){alert("Voice input needs Chrome browser.");return;}
+    const rec=new SR();
+    rec.lang="en-GB"; rec.interimResults=false; rec.maxAlternatives=1;
+    rec.onstart=()=>setListening(true);
+    rec.onend=()=>setListening(false);
+    rec.onerror=()=>setListening(false);
+    rec.onresult=e=>onResult(e.results[0][0].transcript.toUpperCase().trim());
+    recRef.current=rec; rec.start();
+  },[onResult]);
+  const stop=useCallback(()=>{recRef.current?.stop();setListening(false);},[]);
+  return {listening,start,stop};
+}
+
+// ── INITIAL ───────────────────────────────────────────────────────────────────
+const INITIAL=[
+  {id:1,name:"BA WEARER 01",entryTs:null,startPressure:300},
+  {id:2,name:"BA WEARER 02",entryTs:null,startPressure:300},
+  {id:3,name:"BA WEARER 03",entryTs:null,startPressure:300},
+  {id:4,name:"BA WEARER 04",entryTs:null,startPressure:300},
+];
+
+// ── WEARER ROW ────────────────────────────────────────────────────────────────
+function WearerRow({wearer,now,cursorPct,onSetEntry,onClear,onRename,onAdjust,onSetPressure}) {
+  const {name,entryTs,startPressure}=wearer;
+  const [editP,setEditP]=useState(false);
+  const [pInput,setPInput]=useState(startPressure);
+  const {listening,start:startVoice,stop:stopVoice}=useVoice(onRename);
+  const active=entryTs!==null;
+  const T=calcT(startPressure);
+  const elapsedMs=active?(now-entryTs):0;
+  const elapsedMin=elapsedMs/60000;
+  const elapsedSec=Math.floor(elapsedMs/1000);
+  const phase=active?getPhase(elapsedMin,startPressure):null;
+  const pressure=active?pressureAt(elapsedMin,startPressure):startPressure;
+  const isWhistle=phase?.id==="whistle";
+  const entryMin=active?new Date(entryTs).getMinutes():null;
+  const entryTimeStr=active?new Date(entryTs).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}):null;
+  const returnStr=active?new Date(entryTs+T.whistle*60000).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}):null;
+  const whistleSec=active?Math.max(0,Math.round(T.whistle*60-elapsedSec)):null;
+  const reliefSec=active?Math.max(0,Math.round(T.reliefDue*60-elapsedSec)):null;
+  const segments=active?buildSegments(entryMin,T):[];
+  const entryPct=active?(entryMin/60)*100:null;
+  const thresholdMarkers=active?Object.entries(T).filter(([k])=>k!=="total").map(([key,offset])=>({
+    key, pct:((entryMin+offset)%60)/60*100,
+    label:{reliefDue:"R",safetyStart:"S",fullEndurance:"E",whistle:"W"}[key]||"",
+    color:{reliefDue:"#fb923c",safetyStart:"#fcd34d",fullEndurance:"#f97316",whistle:"#ff4444"}[key]||"#fff",
+  })):[];
+
+  const fmt=(sec)=>{ if(sec<=0)return"00:00"; const m=Math.floor(sec/60),s=sec%60; return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`; };
+  const commitP=()=>{onSetPressure(pInput);setEditP(false);};
+
+  return (
+    <div className={isWhistle?"whistle-row":""} style={{display:"flex",alignItems:"center",background:isWhistle?"#130000":"#080e16",border:`1px solid ${isWhistle?"#ef4444":"#1e3a5f"}`,borderRadius:"4px",padding:"10px 12px",transition:"border-color 0.3s"}}>
+      <div style={{width:"260px",flexShrink:0,paddingRight:"16px",borderRight:"1px solid #1e3a5f"}}>
+
+        {/* Name + Voice */}
+        <div style={{display:"flex",alignItems:"center",gap:"6px",marginBottom:"8px"}}>
+          <input value={name} onChange={e=>onRename(e.target.value)} style={{flex:1,background:"transparent",border:"none",borderBottom:`1px solid ${isWhistle?"#ef444440":"#1e3a5f"}`,color:isWhistle?"#ff6666":"#7ab3d4",fontFamily:"'Share Tech Mono',monospace",fontSize:"12px",letterSpacing:"2px",paddingBottom:"3px"}}/>
+          <button onClick={listening?stopVoice:startVoice} className={listening?"mic-active":""} title="Voice input" style={{background:listening?"#200000":"#0a1422",border:`1px solid ${listening?"#ef4444":"#1e3a5f"}`,color:listening?"#ff4444":"#4a7fa5",borderRadius:"3px",padding:"2px 7px",cursor:"pointer",fontSize:"13px",flexShrink:0}}>
+            {listening?"🔴":"🎤"}
+          </button>
+        </div>
+
+        {/* Pressure */}
+        <div style={{marginBottom:"8px"}}>
+          {editP||!active?(
+            <div style={{display:"flex",alignItems:"center",gap:"6px"}}>
+              <span style={{fontSize:"10px",color:"#2a5a80",whiteSpace:"nowrap"}}>START P:</span>
+              <input type="number" min="50" max="400" value={pInput}
+                onChange={e=>setPInput(e.target.value)}
+                onBlur={commitP} onKeyDown={e=>e.key==="Enter"&&commitP()} autoFocus={editP}
+                style={{width:"64px",background:"#0a1422",border:"1px solid #e05a1e",color:"#e05a1e",fontFamily:"'Share Tech Mono',monospace",fontSize:"13px",fontWeight:"bold",padding:"2px 6px",borderRadius:"3px",textAlign:"center"}}/>
+              <span style={{fontSize:"10px",color:"#2a5a80"}}>BAR</span>
+              {editP&&<button onClick={commitP} style={{...btnBase,background:"#052e16",color:"#4ade80",border:"1px solid #166534",padding:"2px 8px",width:"auto",fontSize:"10px"}}>✓</button>}
+            </div>
+          ):(
+            <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+              <span style={{fontSize:"10px",color:"#2a5a80"}}>START P:</span>
+              <span style={{fontSize:"13px",color:"#e05a1e",fontWeight:"bold"}}>{startPressure} BAR</span>
+              <button onClick={()=>{setPInput(startPressure);setEditP(true);}} style={{background:"#0a1422",border:"1px solid #1e3a5f",color:"#4a7fa5",borderRadius:"2px",padding:"1px 6px",cursor:"pointer",fontSize:"10px",fontFamily:"'Share Tech Mono',monospace"}}>✎</button>
+            </div>
+          )}
+        </div>
+
+        {/* Stats */}
+        {active?(
+          <div style={{fontSize:"11px",lineHeight:"1.9"}}>
+            <div style={{display:"flex",justifyContent:"space-between"}}>
+              <span style={{color:"#2a5a80"}}>ENTRY</span>
+              <span style={{color:"#4a7fa5"}}>{entryTimeStr}
+                <button onClick={()=>onAdjust(-1)} style={adjBtn}>−</button>
+                <button onClick={()=>onAdjust(+1)} style={adjBtn}>+</button>
+              </span>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between"}}>
+              <span style={{color:"#2a5a80"}}>ELAPSED</span>
+              <span style={{color:"#fbbf24"}}>{String(Math.floor(elapsedMin)).padStart(2,"0")}:{String(Math.floor((elapsedMin%1)*60)).padStart(2,"0")}</span>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between"}}>
+              <span style={{color:"#2a5a80"}}>~PRESSURE</span>
+              <span style={{color:"#e05a1e"}}>{pressure} BAR</span>
+            </div>
+            {/* Countdowns */}
+            <div style={{marginTop:"6px",padding:"6px 8px",background:"#0a1422",borderRadius:"3px",border:"1px solid #1e3a5f"}}>
+              <div style={{display:"flex",justifyContent:"space-between",marginBottom:"3px"}}>
+                <span style={{color:"#fb923c",fontSize:"10px"}}>RELIEF IN</span>
+                <span style={{color:reliefSec<=0?"#ff4444":reliefSec<120?"#fb923c":"#fbbf24",fontFamily:"'Orbitron',monospace",fontSize:"13px",fontWeight:"600"}}>
+                  {reliefSec<=0?"NOW":fmt(reliefSec)}
+                </span>
+              </div>
+              <div style={{display:"flex",justifyContent:"space-between"}}>
+                <span style={{color:"#ff4444",fontSize:"10px"}}>WHISTLE IN</span>
+                <span className={whistleSec<=60?"blink":""} style={{color:whistleSec<=0?"#ff1744":whistleSec<120?"#ff4444":"#f97316",fontFamily:"'Orbitron',monospace",fontSize:"13px",fontWeight:"600"}}>
+                  {whistleSec<=0?"RETURN!":fmt(whistleSec)}
+                </span>
+              </div>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",marginTop:"4px"}}>
+              <span style={{color:"#2a5a80"}}>RETURN BY</span>
+              <span style={{color:"#f97316"}}>{returnStr}</span>
+            </div>
+            <div style={{marginTop:"4px"}}>
+              <span className={isWhistle?"blink":""} style={{background:phase.bg,color:phase.color,border:`1px solid ${phase.border}`,padding:"2px 8px",borderRadius:"2px",fontSize:"10px",letterSpacing:"1.5px",display:"inline-block"}}>{phase.label}</span>
+            </div>
+          </div>
+        ):(
+          <div style={{color:"#1e3a5f",fontSize:"11px",letterSpacing:"2px",marginBottom:"8px"}}>NOT DEPLOYED</div>
+        )}
+
+        <div style={{marginTop:"8px"}}>
+          {active?(
+            <button onClick={onClear} style={{...btnBase,background:"#200000",color:"#ff6666",border:"1px solid #7f1d1d"}}>✕  CLEAR ENTRY</button>
+          ):(
+            <button onClick={onSetEntry} style={{...btnBase,background:"#052e16",color:"#4ade80",border:"1px solid #166534"}}>⏱  SET ENTRY NOW</button>
+          )}
+        </div>
+      </div>
+
+      {/* TRACK */}
+      <div style={{flex:1,paddingLeft:"14px"}}>
+        <div style={{height:"44px",background:"#030508",borderRadius:"3px",position:"relative",overflow:"hidden",border:"1px solid #1e3a5f"}}>
+          {segments.map((s,i)=><div key={i} style={{position:"absolute",left:`${s.left}%`,width:`${s.width}%`,height:"100%",background:s.color,borderRight:"1px solid rgba(255,255,255,0.04)"}}/>)}
+          {[5,10,15,20,25,30,35,40,45,50,55].map(m=><div key={m} style={{position:"absolute",left:`${(m/60)*100}%`,top:0,width:"1px",height:"100%",background:"rgba(255,255,255,0.05)"}}/>)}
+          {thresholdMarkers.map(({key,pct,label,color})=>(
+            <div key={key} style={{position:"absolute",left:`${pct}%`,top:0,width:"2px",height:"100%",background:color,opacity:0.8}}>
+              <div style={{position:"absolute",top:"2px",left:"3px",fontSize:"9px",color,fontFamily:"'Share Tech Mono',monospace"}}>{label}</div>
+            </div>
+          ))}
+          {active&&<div style={{position:"absolute",left:`${entryPct}%`,top:0,width:"2px",height:"100%",background:"#38bdf8",boxShadow:"0 0 6px #38bdf8"}}>
+            <div style={{position:"absolute",top:"2px",left:"3px",fontSize:"9px",color:"#38bdf8"}}>▼</div>
+          </div>}
+          <div style={{position:"absolute",left:`${cursorPct}%`,top:0,width:"2px",height:"100%",background:"#ffffff",boxShadow:"0 0 8px #ffffff80",zIndex:10}}/>
+        </div>
+        <div style={{position:"relative",height:"14px",marginTop:"2px"}}>
+          {[0,5,10,15,20,25,30,35,40,45,50,55,60].map(m=>(
+            <div key={m} style={{position:"absolute",left:`${(m/60)*100}%`,fontSize:"9px",color:"#1e3a5f",transform:m===60?"translateX(-100%)":"translateX(-50%)"}}>{String(m).padStart(2,"0")}</div>
+          ))}
+          <div style={{position:"absolute",left:`${cursorPct}%`,fontSize:"9px",color:"#ffffff80",transform:"translateX(-50%)"}}>▲</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── MAIN ──────────────────────────────────────────────────────────────────────
+function BABoard() {
+  const [wearers,setWearers]=useState(INITIAL);
+  const [now,setNow]=useState(new Date());
+  const alertedRef=useRef(new Set());
+  const {alarmRelief,alarmWhistle,alarmWithdraw}=useAudio();
+
+  useEffect(()=>{ const t=setInterval(()=>setNow(new Date()),1000); return()=>clearInterval(t); },[]);
+
+  // Keep screen awake
+  useEffect(()=>{
+    let wakeLock=null;
+    const req=async()=>{ try{ if("wakeLock" in navigator){ wakeLock=await navigator.wakeLock.request("screen"); } }catch(e){} };
+    req();
+    return()=>{ wakeLock?.release(); };
+  },[]);
+
+  const update=(id,patch)=>setWearers(p=>p.map(w=>w.id===id?{...w,...patch}:w));
+  const setEntry=(id)=>update(id,{entryTs:Date.now()});
+  const clear=(id)=>{ update(id,{entryTs:null}); ["relief","whistle","withdraw"].forEach(k=>alertedRef.current.delete(`${k}-${id}`)); };
+  const adjust=(id,d)=>update(id,{entryTs:(wearers.find(w=>w.id===id)?.entryTs??Date.now())+d});
+  const rename=(id,name)=>update(id,{name});
+  const setPressure=(id,p)=>update(id,{startPressure:Math.min(400,Math.max(50,Number(p)))});
+
+  useEffect(()=>{
+    wearers.forEach(w=>{
+      if(!w.entryTs) return;
+      const elapsed=(now-w.entryTs)/60000, T=calcT(w.startPressure);
+      if(elapsed>=T.reliefDue && !alertedRef.current.has(`relief-${w.id}`)){alertedRef.current.add(`relief-${w.id}`);alarmRelief();}
+      if(elapsed>=T.whistle*0.85 && !alertedRef.current.has(`whistle-${w.id}`)){alertedRef.current.add(`whistle-${w.id}`);alarmWhistle();}
+      if(elapsed>=T.whistle && !alertedRef.current.has(`withdraw-${w.id}`)){alertedRef.current.add(`withdraw-${w.id}`);alarmWithdraw();}
+    });
+  },[now,wearers,alarmRelief,alarmWhistle,alarmWithdraw]);
+
+  const curMin=now.getMinutes(), curSec=now.getSeconds();
+  const fracMin=curMin+curSec/60, cursorPct=(fracMin/60)*100;
+  const timeStr=now.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  const dateStr=now.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}).toUpperCase();
+
+  return (
+    <div style={{background:"#060a0f",minHeight:"100vh",padding:"16px 20px 24px",fontFamily:"'Share Tech Mono',monospace",color:"#c9d8e8",overflowX:"hidden",position:"relative"}}>
+      <div style={{position:"fixed",top:0,left:0,right:0,bottom:0,background:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px)",pointerEvents:"none",zIndex:1000}}/>
+
+      {/* HEADER */}
+      <div style={{textAlign:"center",marginBottom:"18px",borderBottom:"1px solid #1e3a5f",paddingBottom:"16px"}}>
+        <div style={{fontSize:"11px",letterSpacing:"6px",color:"#4a7fa5",marginBottom:"6px"}}>INCIDENT COMMAND · FIRE SERVICE</div>
+        <div style={{fontFamily:"'Orbitron',monospace",fontSize:"clamp(18px,4vw,26px)",fontWeight:"900",letterSpacing:"4px",color:"#e05a1e",textShadow:"0 0 20px #e05a1e60,0 0 40px #e05a1e30"}}>
+          BA ENTRY CONTROL BOARD
+        </div>
+        <div style={{fontSize:"10px",letterSpacing:"3px",color:"#2a5a80",marginTop:"4px"}}>
+          2040 L · 40 L/MIN · PRESSURE ADJUSTABLE PER WEARER · SAFETY 90%
+        </div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"24px",marginTop:"14px"}}>
+          <div style={{textAlign:"left"}}>
+            <div style={{fontSize:"10px",color:"#2a5a80",letterSpacing:"2px"}}>DATE</div>
+            <div style={{fontSize:"14px",color:"#4a7fa5"}}>{dateStr}</div>
+          </div>
+          <div style={{textAlign:"center"}}>
+            <div style={{fontSize:"10px",color:"#2a5a80",letterSpacing:"2px",marginBottom:"2px"}}>TIME</div>
+            <div style={{fontFamily:"'Orbitron',monospace",fontSize:"clamp(28px,6vw,42px)",fontWeight:"600",color:"#38bdf8",letterSpacing:"6px",textShadow:"0 0 20px #38bdf860"}}>{timeStr}</div>
+          </div>
+          <div style={{textAlign:"right"}}>
+            <div style={{fontSize:"10px",color:"#2a5a80",letterSpacing:"2px"}}>CLOCK MIN</div>
+            <div style={{fontSize:"14px",color:"#4a7fa5"}}>{String(curMin).padStart(2,"0")}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* LEGEND */}
+      <div style={{display:"flex",gap:"6px",justifyContent:"center",marginBottom:"16px",flexWrap:"wrap"}}>
+        {ALL_PHASES.map(p=>(
+          <div key={p.id} style={{background:p.bg,color:p.color,border:`1px solid ${p.border}`,padding:"3px 12px",borderRadius:"2px",fontSize:"10px",fontFamily:"'Share Tech Mono',monospace",letterSpacing:"1.5px"}}>{p.label}</div>
+        ))}
+      </div>
+
+      {/* TIME SCALE */}
+      <div style={{display:"flex",marginBottom:"2px"}}>
+        <div style={{width:"260px",flexShrink:0}}/>
+        <div style={{flex:1,position:"relative",height:"18px"}}>
+          {[0,5,10,15,20,25,30,35,40,45,50,55,60].map(m=>(
+            <div key={m} style={{position:"absolute",left:`${(m/60)*100}%`,fontSize:"10px",color:"#1e3a5f",letterSpacing:"1px",transform:m===60?"translateX(-100%)":"translateX(-50%)"}}>{String(m).padStart(2,"0")}</div>
+          ))}
+        </div>
+      </div>
+
+      {/* WEARER ROWS */}
+      <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
+        {wearers.map(w=>(
+          <WearerRow key={w.id} wearer={w} now={now} fracMin={fracMin} cursorPct={cursorPct}
+            onSetEntry={()=>setEntry(w.id)} onClear={()=>clear(w.id)}
+            onRename={n=>rename(w.id,n)} onAdjust={d=>adjust(w.id,d*60000)}
+            onSetPressure={p=>setPressure(w.id,p)}/>
+        ))}
+      </div>
+
+      {/* FOOTER */}
+      <div style={{marginTop:"20px",background:"#080e16",border:"1px solid #1e3a5f",borderRadius:"4px",padding:"14px 18px",fontSize:"10px",color:"#1e3a5f",letterSpacing:"1px",textAlign:"center"}}>
+        WHISTLE @ {WHISTLE_BAR} BAR · SAFETY @ {SAFETY_BAR} BAR · THRESHOLDS AUTO-CALCULATE FROM ENTRY PRESSURE
+      </div>
+    </div>
+  );
+}
+
+const btnBase={fontFamily:"'Share Tech Mono',monospace",fontSize:"10px",letterSpacing:"1.5px",border:"none",borderRadius:"2px",padding:"4px 10px",cursor:"pointer",width:"100%"};
+const adjBtn={fontFamily:"'Share Tech Mono',monospace",background:"#0a1422",color:"#4a7fa5",border:"1px solid #1e3a5f",borderRadius:"2px",padding:"0 5px",marginLeft:"4px",cursor:"pointer",fontSize:"11px",lineHeight:"1.4"};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<BABoard/>);
+</script>
+<script>
+  if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
+</script>
+</body>
+</html>
